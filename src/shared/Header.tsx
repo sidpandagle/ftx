@@ -32,6 +32,7 @@ import {
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
+import { tools } from "@/services/constants"
 
 
 export default function Header() {
@@ -64,14 +65,18 @@ export default function Header() {
                             <NavigationMenuContent>
                                 <NavigationMenuLink>
                                     <div className="grid gap-4 sm:grid-cols-4 p-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 min-w-[600px]">
-                                        <Link href={'/converter/json-formatter'}>
-                                            <Card className="hover:bg-primary-foreground duration-200 cursor-pointer border-none shadow-none">
-                                                <CardHeader className="p-2">
-                                                    <CardTitle className="text-md">JSON Formatter</CardTitle>
-                                                    {/* <CardDescription className="text-xs">Card Description</CardDescription> */}
-                                                </CardHeader>
-                                            </Card>
-                                        </Link>
+                                        {tools.map((r: any, i: any) => {
+                                            return (
+                                                <Link key={i} href={`/converter/${r.url}`}>
+                                                    <Card className="hover:bg-primary-foreground duration-200 cursor-pointer border-none shadow-none">
+                                                        <CardHeader className="p-2">
+                                                            <CardTitle className="text-md">{r.heading}</CardTitle>
+                                                            {/* <CardDescription className="text-xs">Card Description</CardDescription> */}
+                                                        </CardHeader>
+                                                    </Card>
+                                                </Link>
+                                            )
+                                        })}
                                     </div>
 
                                 </NavigationMenuLink>
