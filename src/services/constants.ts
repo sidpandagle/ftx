@@ -1,4 +1,4 @@
-import { jsonFormatter, minifyJSON } from "./processor";
+import { jsonFormatter, JSONtoXML, minifyJSON } from "./processor";
 
 export const tools = [
     {
@@ -16,6 +16,14 @@ export const tools = [
         labelOne: 'JSON',
         labelTwo: 'Minified JSON',
         process: minifyJSON,
+    },
+    {
+        url: 'json-to-xml',
+        heading: 'JSON To XML',
+        subHeading: 'JSON minification removes unnecessary characters from JSON data, like whitespace and comments. This makes your JSON files smaller, saving storage space and speeding up transmission times.',
+        labelOne: 'JSON',
+        labelTwo: 'XML',
+        process: JSONtoXML,
     },
 ];
 

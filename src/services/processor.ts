@@ -1,4 +1,3 @@
-
 export function jsonFormatter(input: any) {
     try {
         return JSON.stringify(JSON.parse(input), null, "\t")
@@ -9,9 +8,61 @@ export function jsonFormatter(input: any) {
 
 export function minifyJSON(json: any) {
     try {
-        let parsed = JSON.parse(json)
+        JSON.parse(json)
         return json.replace(/(^\s+|\s+$|\n)/gm, "");
     } catch (error) {
         return 'Invalid JSON'
     }
+}
+
+export function JSONtoXML(json: any) {
+    try {
+        if (typeof json == 'string') {
+            json = JSON.parse(json)
+        }
+        let xml = '';
+        for (let prop in json) {
+            xml += "<" + prop + ">";
+            if (Array.isArray(json[prop])) {
+                for (let array of json[prop]) {
+
+                    // A real botch fix here
+                    xml += "</" + prop + ">";
+                    xml += "<" + prop + ">";
+
+                    xml += JSONtoXML(new Object(array));
+                }
+            } else if (typeof json[prop] == "object") {
+                xml += JSONtoXML(new Object(json[prop]));
+            } else {
+                xml += json[prop];
+            }
+            xml += "</" + prop + ">";
+        }
+        xml = xml.replace(/<\/?[0-9]{1,}>/g, '');
+        return xmlFormatter(xml)
+    } catch (error) {
+        console.log(error)
+        return 'Invalid JSON'
+    }
+}
+
+export function xmlFormatter(xml: string) {
+    let tab = '\t';
+    let result = '';
+    let indent = '';
+
+    xml.split(/>\s*</).forEach(function (element: any) {
+        if (element.match(/^\/\w/)) {
+            indent = indent.substring(tab.length);
+        }
+
+        result += indent + '<' + element + '>\r\n';
+
+        if (element.match(/^<?\w[^>]*[^\/]$/) && !element.startsWith("input")) {
+            indent += tab;
+        }
+    });
+
+    return result.substring(1, result.length - 3);
 }

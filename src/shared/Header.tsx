@@ -26,9 +26,6 @@ import {
 } from "@/components/ui/navigation-menu"
 import {
     Card,
-    CardContent,
-    CardDescription,
-    CardFooter,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -37,105 +34,105 @@ import { tools } from "@/services/constants"
 
 export default function Header() {
     return (
-        <header className="container mx-auto sticky top-0 flex h-16 items-center gap-4 px-4 md:px-6 backdrop-blur-sm shadow-sm">
-            <nav className="hidden flex-col text-lg font-medium md:flex md:flex-row md:items-center md:text-sm">
-                <Link
-                    href={"/"}
-                    className="px-4 flex items-center gap-2 text-lg font-semibold md:text-base"
-                >
-                    <Aperture className="h-6 w-6" />
-                    <span className="sr-only">Acme Inc</span>
-                </Link>
-                <Link
-                    href={"/about"}
-                    className="px-4 text-muted-foreground transition-colors hover:text-foreground"
-                >
-                    About
-                </Link>
-                <Link
-                    href={"/contact"}
-                    className="px-4 text-muted-foreground transition-colors hover:text-foreground"
-                >
-                    Contact
-                </Link>
-                <NavigationMenu className="text-muted-foreground transition-colors hover:text-foreground">
-                    <NavigationMenuList>
-                        <NavigationMenuItem>
-                            <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
-                            <NavigationMenuContent>
-                                <NavigationMenuLink>
-                                    <div className="grid gap-4 sm:grid-cols-4 p-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 min-w-[600px]">
-                                        {tools.map((r: any, i: any) => {
-                                            return (
-                                                <Link key={i} href={`/converter/${r.url}`}>
-                                                    <Card className="hover:bg-primary-foreground duration-200 cursor-pointer border-none shadow-none">
-                                                        <CardHeader className="p-2">
-                                                            <CardTitle className="text-md">{r.heading}</CardTitle>
-                                                            {/* <CardDescription className="text-xs">Card Description</CardDescription> */}
-                                                        </CardHeader>
-                                                    </Card>
-                                                </Link>
-                                            )
-                                        })}
-                                    </div>
-
-                                </NavigationMenuLink>
-                            </NavigationMenuContent>
-                        </NavigationMenuItem>
-                    </NavigationMenuList>
-                </NavigationMenu>
-            </nav>
-            <Sheet>
-                <SheetTrigger asChild>
-                    <Button
-                        variant="outline"
-                        size="icon"
-                        className="shrink-0 md:hidden"
+        <div className="bg-white border-b  sticky top-0">
+            <header className="container mx-auto flex h-16 items-center gap-4 px-4 md:px-6">
+                <nav className="hidden flex-col text-lg font-medium md:flex md:flex-row md:items-center md:text-sm">
+                    <Link
+                        href={"/"}
+                        className="px-4 flex items-center gap-2 text-lg font-semibold md:text-base"
                     >
-                        <Menu className="h-5 w-5" />
-                        <span className="sr-only">Toggle navigation menu</span>
-                    </Button>
-                </SheetTrigger>
-                <SheetContent side="left">
-                    <nav className="grid gap-6 text-lg font-medium">
-                        <Link
-                            href="#"
-                            className="flex items-center gap-2 text-lg font-semibold"
+                        <Aperture className="h-6 w-6" />
+                    </Link>
+                    <Link
+                        href={"/about"}
+                        className="px-4 text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                        About
+                    </Link>
+                    <Link
+                        href={"/contact"}
+                        className="px-4 text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                        Contact
+                    </Link>
+                    <NavigationMenu className="text-muted-foreground transition-colors hover:text-foreground">
+                        <NavigationMenuList>
+                            <NavigationMenuItem>
+                                <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
+                                <NavigationMenuContent>
+                                    <NavigationMenuLink>
+                                        <div className="grid gap-4 sm:grid-cols-4 p-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 min-w-[600px]">
+                                            {tools.map((r: any, i: any) => {
+                                                return (
+                                                    <Link key={i} href={`/converter/${r.url}`}>
+                                                        <Card className="hover:bg-primary-foreground duration-200 cursor-pointer border-none shadow-none">
+                                                            <CardHeader className="p-2">
+                                                                <CardTitle className="text-md">{r.heading}</CardTitle>
+                                                                {/* <CardDescription className="text-xs">Card Description</CardDescription> */}
+                                                            </CardHeader>
+                                                        </Card>
+                                                    </Link>
+                                                )
+                                            })}
+                                        </div>
+
+                                    </NavigationMenuLink>
+                                </NavigationMenuContent>
+                            </NavigationMenuItem>
+                        </NavigationMenuList>
+                    </NavigationMenu>
+                </nav>
+                <Sheet>
+                    <SheetTrigger asChild>
+                        <Button
+                            variant="outline"
+                            size="icon"
+                            className="shrink-0 md:hidden"
                         >
-                            <Package2 className="h-6 w-6" />
-                            <span className="sr-only">Acme Inc</span>
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-muted-foreground hover:text-foreground"
-                        >
-                            Dashboard
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-muted-foreground hover:text-foreground"
-                        >
-                            Orders
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-muted-foreground hover:text-foreground"
-                        >
-                            Products
-                        </Link>
-                        <Link
-                            href="#"
-                            className="text-muted-foreground hover:text-foreground"
-                        >
-                            Customers
-                        </Link>
-                        <Link href="#" className="hover:text-foreground">
-                            Settings
-                        </Link>
-                    </nav>
-                </SheetContent>
-            </Sheet>
-            {/* <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
+                            <Menu className="h-5 w-5" />
+                            <span className="sr-only">Toggle navigation menu</span>
+                        </Button>
+                    </SheetTrigger>
+                    <SheetContent side="left">
+                        <nav className="grid gap-6 text-lg font-medium">
+                            <Link
+                                href="#"
+                                className="flex items-center gap-2 text-lg font-semibold"
+                            >
+                                <Package2 className="h-6 w-6" />
+                                <span className="sr-only">Acme Inc</span>
+                            </Link>
+                            <Link
+                                href="#"
+                                className="text-muted-foreground hover:text-foreground"
+                            >
+                                Dashboard
+                            </Link>
+                            <Link
+                                href="#"
+                                className="text-muted-foreground hover:text-foreground"
+                            >
+                                Orders
+                            </Link>
+                            <Link
+                                href="#"
+                                className="text-muted-foreground hover:text-foreground"
+                            >
+                                Products
+                            </Link>
+                            <Link
+                                href="#"
+                                className="text-muted-foreground hover:text-foreground"
+                            >
+                                Customers
+                            </Link>
+                            <Link href="#" className="hover:text-foreground">
+                                Settings
+                            </Link>
+                        </nav>
+                    </SheetContent>
+                </Sheet>
+                {/* <div className="flex w-full items-center gap-4 md:ml-auto md:gap-2 lg:gap-4">
                 <form className="ml-auto flex-1 sm:flex-initial">
                     <div className="relative">
                         <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
@@ -147,7 +144,8 @@ export default function Header() {
                     </div>
                 </form>
             </div> */}
-        </header>
+            </header>
+        </div>
 
     )
 }
