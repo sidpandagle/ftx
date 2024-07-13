@@ -13,7 +13,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...tools.map(r=>{
         return {
-            url: 'https://www.swattch.co/converter/' + r.url,
+            url: 'https://www.swattch.co' + r.url,
             lastModified: new Date(),
         }
     })
