@@ -52,7 +52,7 @@ export function xmlFormatter(xml: string) {
     let result = '';
     let indent = '';
 
-    xml.split(/>\s*</).forEach(function (element: any) {
+    xml && xml.split(/>\s*</).forEach(function (element: any) {
         if (element.match(/^\/\w/)) {
             indent = indent.substring(tab.length);
         }
@@ -65,4 +65,38 @@ export function xmlFormatter(xml: string) {
     });
 
     return result.substring(1, result.length - 3);
+}
+
+export function lowercaseToUppercase(text: string) {
+    return text?.toUpperCase() || '';
+}
+
+export function uppercaseToLowercase(text: string) {
+    return text?.toLowerCase() || '';
+}
+
+export function htmlFormatter(html: string) {
+    let tab = '\t';
+    let result = '';
+    let indent = '';
+
+    html && html.split(/>\s*</).forEach(function (element) {
+        if (element.match(/^\/\w/)) {
+            indent = indent.substring(tab.length);
+        }
+
+        result += indent + '<' + element + '>\r\n';
+
+        let bypassList = ['input','br','hr','area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr']
+        let hasBypass = bypassList.every(r=>!element.startsWith(r));    
+        if (hasBypass && element.match(/^<?\w[^>]*[^\/]$/)) {
+            indent += tab;
+        }
+    });
+
+    return result.substring(1, result.length - 3);
+}
+
+export function textToSlug(text: string) {
+    return text?.replace(/\s+/g, '-').toLowerCase() || '';
 }

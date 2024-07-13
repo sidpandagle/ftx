@@ -1,5 +1,5 @@
 'use client'
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, useRef } from "react"
 import { Button } from "@/components/ui/button"
 import { Textarea } from "@/components/ui/textarea"
 import { Label } from "@radix-ui/react-dropdown-menu"
@@ -10,14 +10,33 @@ import { Toaster } from "@/components/ui/toaster"
 
 export default function Converter({ params }: { params: { type: string } }) {
 
-    const [input, setInput] = useState(null as any);
-    const [output, setOutput] = useState(null as any);
     const [convertor, setConvertor] = useState({} as any);
     const [showIcon, setShowIcon] = useState(false);
+    const [input, setInput] = useState('');
+    const [output, setOutput] = useState('');
+    const textRef:any = useRef(null);
 
     useEffect(() => {
-        setConvertor(tools.find((r: any) => r.url == params.type));
+        setConvertor(tools.find((r: any) => r.url == '/converter/' + params.type));
     }, [params])
+
+    useEffect(() => {
+        setInput(convertor.sampleInput)
+    }, [convertor])
+
+    useEffect(() => {
+        if (convertor && convertor.process) {
+            setOutput(convertor.process(input))
+        }
+    }, [input])
+
+    useEffect(() => {
+        setTimeout(()=>{
+            if (textRef.current) {
+                textRef.current.focus();
+            }
+        })
+    }, []);
 
     function clear() {
         setInput('');
@@ -40,19 +59,22 @@ export default function Converter({ params }: { params: { type: string } }) {
                     <div className="grid w-full gap-2">
 
                         <Label>{convertor.labelOne}</Label>
-                        <Textarea value={input} onPaste={(e) => { setOutput(convertor.process(e.clipboardData.getData('Text'))) }} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => setInput(input)} className="resize-none focus-visible:ring-1 focus-visible:ring-offset-0 h-72" />
+                        <Textarea ref={textRef} value={input} onPaste={(e) => { setOutput(convertor.process(e.clipboardData.getData('Text'))) }} onChange={(e) => setInput(e.target.value)} onKeyDown={(e) => setInput(input)} className="resize-none focus-visible:ring-1 focus-visible:ring-offset-0 h-72" />
                     </div>
                     <div className="grid w-full gap-2 relative" onMouseEnter={() => { setShowIcon(true) }} onMouseLeave={() => { setShowIcon(false) }}>
-                        {output && showIcon && <ClipboardCopy onClick={() => {
-                            toast({
-                                title: "Copied",
-                                description: "Code copied to clipboard",
-                                action: (
-                                    <Check />
-                                ),
-                            });
-                            navigator.clipboard.writeText(output);
-                        }} className="absolute z-10  top-10 right-4" />}
+                        {output && showIcon &&
+                            <div className="absolute border group border-slate-800 hover:bg-slate-800 p-1 z-10 top-10 right-4 rounded-lg" >
+                                <ClipboardCopy className="h-4 w-4 group-hover:text-white text-slate-800" onClick={() => {
+                                    toast({
+                                        title: "Copied",
+                                        description: "Code copied to clipboard",
+                                        action: (
+                                            <Check />
+                                        ),
+                                    });
+                                    navigator.clipboard.writeText(output);
+                                }} />
+                            </div>}
                         <Label>{convertor.labelTwo}</Label>
                         <Textarea value={output} onChange={(e) => { }} className="text-black cursor-default caret-transparent resize-none h-72 focus-visible:ring-offset-0 focus-visible:ring-0" />
                     </div>

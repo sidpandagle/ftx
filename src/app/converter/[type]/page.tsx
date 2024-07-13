@@ -13,8 +13,7 @@ export async function generateMetadata(
   { params, searchParams }: Props,
   parent: ResolvingMetadata
 ): Promise<Metadata> {
-  const type = params.type
-  const tool = tools.find((r: any) => r.url == params.type)
+  const tool = tools.find((r: any) => r.url == '/converter/' + params.type)
   return {
     title: tool?.heading,
     description: tool?.subHeading,

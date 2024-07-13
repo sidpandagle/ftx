@@ -49,16 +49,20 @@ export default function Header() {
                     <NavigationMenu className="text-muted-foreground transition-colors hover:text-foreground">
                         <NavigationMenuList>
                             <NavigationMenuItem>
-                                <NavigationMenuTrigger className="hover:bg-transparent focus:bg-transparent">Tools</NavigationMenuTrigger>
+                                <Link href={`/converter`}>
+                                    <NavigationMenuTrigger className="hover:bg-transparent focus:bg-transparent">
+                                        Tools
+                                    </NavigationMenuTrigger>
+                                </Link>
                                 <NavigationMenuContent>
                                     <NavigationMenuLink>
-                                        <div className="grid gap-4 sm:grid-cols-4 p-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 min-w-[600px]">
+                                        <div className="grid gap-4 sm:grid-cols-4 p-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 min-w-[700px]">
                                             {tools.map((r: any, i: any) => {
                                                 return (
-                                                    <Link key={i} href={`/converter/${r.url}`}>
+                                                    <Link key={i} href={`${r.url}`}>
                                                         <Card className="hover:bg-primary-foreground duration-200 cursor-pointer border-none shadow-none">
                                                             <CardHeader className="p-2">
-                                                                <CardTitle className="text-md">{r.heading}</CardTitle>
+                                                                <CardTitle className="text-sm">{r.heading}</CardTitle>
                                                                 <CardDescription className="text-xs line-clamp-2">{r.subHeading}</CardDescription>
                                                             </CardHeader>
                                                         </Card>
