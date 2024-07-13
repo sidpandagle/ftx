@@ -7,6 +7,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       url: 'https://www.swattch.co',
       lastModified: new Date(),
     },
+    {
+      url: 'https://www.swattch.co/converter',
+      lastModified: new Date(),
+    },
     ...tools.map(r=>{
         return {
             url: 'https://www.swattch.co/converter/' + r.url,
