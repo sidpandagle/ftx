@@ -14,24 +14,31 @@ import { Sponsors } from "@/shared/homepage/Sponsors";
 import { Team } from "@/shared/homepage/Team";
 import { Testimonials } from "@/shared/homepage/Testimonials";
 
+import type { Metadata } from "next";
+export const metadata: Metadata = {
+  title: "Swattch",
+  description: "Unlock Your Text's Potential: Free Online Conversion Tools",
+  keywords: "online converter, free converter, file converter, document converter, image converter, audio converter, video converter, unit converter, data converter, online tool, free tool, easy to use, fast conversion, batch conversion",
+};
+
 function App() {
   return (
     <>
-      {/* <Navbar /> */}
-      {/* <Hero /> */}
-      {/* <Sponsors /> */}
-      {/* <About /> */}
-      {/* <HowItWorks /> */}
+      <Hero />
+      {/* <Navbar />
+      <Sponsors />
+      <About />
+      <HowItWorks />
       <Features />
       <Services />
       <Cta />
-      {/* <Testimonials /> */}
+      <Testimonials />
       <Team />
       <Pricing />
       <Newsletter />
       <FAQ />
       <Footer />
-      <ScrollToTop />
+      <ScrollToTop /> */}
     </>
   );
 }

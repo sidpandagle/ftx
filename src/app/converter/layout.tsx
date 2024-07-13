@@ -1,8 +1,5 @@
 import Link from "next/link"
 import React from "react"
-import {
-    Code,
-} from "lucide-react"
 import { tools } from "@/services/constants";
 export default function Dashboard({
     children,
@@ -16,16 +13,12 @@ export default function Dashboard({
                 <div className="flex h-full max-h-screen flex-col gap-2">
                     <div className="flex-1">
                         <nav className="grid items-start py-4 px-2 text-sm font-medium lg:px-4">
-                            <Link href="#" className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all text-primary">
-                                {/* <Home className="h-4 w-4" /> */}
-                                <Code className="h-4 w-4" />
+                            <div className="flex items-center gap-3 text-lg rounded-lg px-3 py-1 text-muted-foreground transition-all text-primary">
                                 Converter
-                            </Link>
+                            </div>
                             {tools.map((r, i) => {
                                 return (
-                                    <Link key={i} href={r.url} className="flex items-center gap-3 rounded-lg px-3 py-2 text-muted-foreground transition-all text-primary">
-                                        {/* <Home className="h-4 w-4" /> */}
-                                        <div className="h-4 w-4"></div>
+                                    <Link key={i} href={r.url} className="flex items-center gap-3 rounded-lg px-3 py-1 text-muted-foreground transition-all text-primary">
                                         {r.heading}
                                     </Link>
                                 )
@@ -34,12 +27,12 @@ export default function Dashboard({
                     </div>
                 </div>
             </div>
-            <div className="col-span-4">
+            <div className="col-span-5">
                 {children}
             </div>
-            <div className="hidden border-r bg-muted/40 md:block col-span-1">
+            {/* <div className="hidden border-r bg-muted/40 md:block col-span-1">
                 Ads
-            </div>
+            </div> */}
         </div>
     )
 }

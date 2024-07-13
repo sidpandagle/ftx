@@ -5,7 +5,7 @@ export default function Footer() {
     return (
         <div className='bg-primary '>
             <div className='container mx-auto  py-8 text-white transition-colors cursor-default text-sm'>
-                Built by ftx. The source code is not available on GitHub.
+                Built by AP, SP. The source code is available on GitHub.
             </div>
         </div>
     )

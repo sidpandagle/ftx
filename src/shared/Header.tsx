@@ -1,16 +1,6 @@
 import Link from "next/link"
 import { CircleUser, Cloud, CreditCard, Aperture, Github, Keyboard, LifeBuoy, LogOut, Mail, Menu, MessageSquare, Package2, Plus, PlusCircle, Search, Settings, User, UserPlus, Users } from "lucide-react"
 import React from 'react'
-import {
-    DropdownMenu,
-    DropdownMenuContent,
-    DropdownMenuItem,
-    DropdownMenuLabel,
-    DropdownMenuSeparator,
-    DropdownMenuShortcut,
-    DropdownMenuTrigger,
-    DropdownMenuGroup, DropdownMenuPortal, DropdownMenuSub, DropdownMenuSubContent, DropdownMenuSubTrigger
-} from "@/components/ui/dropdown-menu"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -26,6 +16,7 @@ import {
 } from "@/components/ui/navigation-menu"
 import {
     Card,
+    CardDescription,
     CardHeader,
     CardTitle,
 } from "@/components/ui/card"
@@ -43,7 +34,7 @@ export default function Header() {
                     >
                         <Aperture className="h-6 w-6" />
                     </Link>
-                    <Link
+                    {/* <Link
                         href={"/about"}
                         className="px-4 text-muted-foreground transition-colors hover:text-foreground"
                     >
@@ -54,11 +45,11 @@ export default function Header() {
                         className="px-4 text-muted-foreground transition-colors hover:text-foreground"
                     >
                         Contact
-                    </Link>
+                    </Link> */}
                     <NavigationMenu className="text-muted-foreground transition-colors hover:text-foreground">
                         <NavigationMenuList>
                             <NavigationMenuItem>
-                                <NavigationMenuTrigger>Tools</NavigationMenuTrigger>
+                                <NavigationMenuTrigger className="hover:bg-transparent focus:bg-transparent">Tools</NavigationMenuTrigger>
                                 <NavigationMenuContent>
                                     <NavigationMenuLink>
                                         <div className="grid gap-4 sm:grid-cols-4 p-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 min-w-[600px]">
@@ -68,7 +59,7 @@ export default function Header() {
                                                         <Card className="hover:bg-primary-foreground duration-200 cursor-pointer border-none shadow-none">
                                                             <CardHeader className="p-2">
                                                                 <CardTitle className="text-md">{r.heading}</CardTitle>
-                                                                {/* <CardDescription className="text-xs">Card Description</CardDescription> */}
+                                                                <CardDescription className="text-xs line-clamp-2">{r.subHeading}</CardDescription>
                                                             </CardHeader>
                                                         </Card>
                                                     </Link>
