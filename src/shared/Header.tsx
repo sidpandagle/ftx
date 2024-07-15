@@ -25,7 +25,7 @@ import { tools } from "@/services/constants"
 
 export default function Header() {
     return (
-        <div className="bg-white border-b  sticky top-0">
+        <div className="bg-white border-b  sticky top-0 z-30">
             <header className="container mx-auto flex h-16 items-center gap-4 px-4 md:px-6">
                 <nav className="hidden flex-col text-lg font-medium md:flex md:flex-row md:items-center md:text-sm">
                     <Link
@@ -39,13 +39,19 @@ export default function Header() {
                         className="px-4 text-muted-foreground transition-colors hover:text-foreground"
                     >
                         About
-                    </Link>
-                    <Link
+                    </Link> */}
+                    {/* <Link
                         href={"/contact"}
                         className="px-4 text-muted-foreground transition-colors hover:text-foreground"
                     >
                         Contact
                     </Link> */}
+                    <Link
+                        href={"/gradient"}
+                        className="px-4 text-muted-foreground transition-colors hover:text-foreground"
+                    >
+                        Gradients
+                    </Link>
                     <NavigationMenu className="text-muted-foreground transition-colors hover:text-foreground">
                         <NavigationMenuList>
                             <NavigationMenuItem>

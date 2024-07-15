@@ -8,6 +8,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date(),
     },
     {
+      url: 'https://www.swattch.co/gradient',
+      lastModified: new Date(),
+    },
+    {
       url: 'https://www.swattch.co/converter',
       lastModified: new Date(),
     },
