@@ -24,6 +24,7 @@ export const metadata: Metadata = {
 function App() {
   return (
     <>
+      <Navbar />
       <Hero />
       {/* <Sponsors /> */}
       {/* <About /> */}
@@ -37,6 +38,7 @@ function App() {
       {/* <Newsletter /> */}
       {/* <FAQ /> */}
       <ScrollToTop />
+      <Footer />
     </>
   );
 }

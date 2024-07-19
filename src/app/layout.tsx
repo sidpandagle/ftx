@@ -14,14 +14,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <ThemeProvider>
         <body className={inter.className}>
-          <Navbar />
-          {children}
-          <Footer />
+          <ThemeProvider>
+            {children}
+          </ThemeProvider>
           <GoogleAnalytics gaId="G-T2MWL6PH5Y" />
         </body>
-      </ThemeProvider>
     </html>
   );
 }
