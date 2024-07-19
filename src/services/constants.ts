@@ -1,4 +1,4 @@
-import { htmlFormatter, jsonFormatter, JSONtoXML, lowercaseToUppercase, minifyJSON, textToSlug, uppercaseToLowercase, xmlFormatter } from "./processor";
+import { decodeHTML, decodeURIString, encodeHTML, encodeURIString, htmlFormatter, jsonFormatter, JSONtoXML, lowercaseToUppercase, minifyJSON, textToCapitalCase, textToSlug, uppercaseToLowercase, wordCount, xmlFormatter } from "./processor";
 
 export const tools = [
     {
@@ -80,6 +80,66 @@ export const tools = [
         sampleInput: `lorem ipsum dolor sit amet`.toUpperCase(),
         process: uppercaseToLowercase,
         metaKeywords: 'lowercase to uppercase converter, uppercase converter, change case to uppercase, text converter uppercase, online uppercase tool, case converter, text formatting tool, uppercase letters, change text case, free uppercase converter, convert text to uppercase online, make text uppercase free, uppercase text for social media, uppercase my text document, batch uppercase converter',
+    },
+    {
+        url: '/converter/text-to-capitalcase',
+        heading: 'Text to Capitalcase',
+        subHeading: 'Effortless Capitalcase Conversion: Highlight the ease and speed of the tool.',
+        labelOne: 'Text',
+        labelTwo: 'Capitalcase',
+        sampleInput: `lorem ipsum dolor sit amet`,
+        process: textToCapitalCase,
+        metaKeywords: 'text conversion, capital case converter, capitalize text tool, text formatting, capital case transformation, text capitalization, title case converter, sentence case to capital case, text editing tools, online capitalize tool',
+    },
+    {
+        url: '/converter/word-counter',
+        heading: 'Word Counter',
+        subHeading: 'Accurately monitor word and character counts in your text with our intuitive word counter. ',
+        labelOne: 'Text',
+        labelTwo: 'Word Count',
+        sampleInput: `lorem ipsum dolor sit amet`,
+        process: wordCount,
+        metaKeywords: 'word counter, character counter, text length, real-time tracking, content management, writing tool, word count tool, character count tool, text analysis, writing aid, seo tool, blog writing, word count checker, essay length, article length',
+    },
+    {
+        url: '/converter/html-encoder',
+        heading: 'HTML Encoder',
+        subHeading: 'Encode your HTML content with our easy to use tool.',
+        labelOne: 'Decoded HTML',
+        labelTwo: 'Encoded HTML',
+        sampleInput: `This is a <test> & "example`,
+        process: encodeHTML,
+        metaKeywords: 'HTML encoding, HTML escape tool, HTML entities, text encoding, character encoding, HTML escape characters, web development, code conversion, HTML special characters, URL encoding, web security, data sanitization',
+    },
+    {
+        url: '/converter/html-decoder',
+        heading: 'HTML Decoder',
+        subHeading: 'Decode your HTML content with our easy to use tool.',
+        labelOne: 'Encoded HTML',
+        labelTwo: 'Decoded HTML',
+        sampleInput: 'This is a &lt;test&gt; &amp; &quot;example&quot;',
+        process: decodeHTML,
+        metaKeywords: 'HTML decoding, HTML unescape tool, HTML entities decoding, character decoding, text unescaping, HTML special characters, web development, code conversion, HTML entity decode, URL decoding, data sanitization, web security',
+    },
+    {
+        url: '/converter/url-encoder',
+        heading: 'URL Encoder',
+        subHeading: 'Encode your URL content with our easy to use tool.',
+        labelOne: 'Decoded URL',
+        labelTwo: 'Encoded URL',
+        sampleInput: `https://google.com`,
+        process: encodeURIString,
+        metaKeywords: 'URL encoding, URL escape tool, URL entities, text encoding, character encoding, URL escape characters, web development, code conversion, URL special characters, URL encoding, web security, data sanitization',
+    },
+    {
+        url: '/converter/url-decoder',
+        heading: 'URL Decoder',
+        subHeading: 'Decode your URL content with our easy to use tool.',
+        labelOne: 'Encoded URL',
+        labelTwo: 'Decoded URL',
+        sampleInput: 'https%3A%2F%2Fgoogle.com',
+        process: decodeURIString,
+        metaKeywords: 'URL decoding, URL unescape tool, URL entities decoding, character decoding, text unescaping, URL special characters, web development, code conversion, URL entity decode, URL decoding, data sanitization, web security',
     },
 ];
 

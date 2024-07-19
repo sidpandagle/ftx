@@ -75,6 +75,18 @@ export function uppercaseToLowercase(text: string) {
     return text?.toLowerCase() || '';
 }
 
+export function textToCapitalCase(text: string) {
+    if (text) {
+        let resultArr = text?.split(' ').filter(r => r != '');
+        resultArr = resultArr.map((r: string) => {
+            r = r[0].toUpperCase() + r.slice(1, r.length).toLowerCase();
+            return r;
+        })
+        return resultArr.join(' ');
+    }
+    return ''
+}
+
 export function htmlFormatter(html: string) {
     let tab = '\t';
     let result = '';
@@ -87,8 +99,8 @@ export function htmlFormatter(html: string) {
 
         result += indent + '<' + element + '>\r\n';
 
-        let bypassList = ['input','br','hr','area','base','br','col','embed','hr','img','input','link','meta','param','source','track','wbr']
-        let hasBypass = bypassList.every(r=>!element.startsWith(r));    
+        let bypassList = ['input', 'br', 'hr', 'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']
+        let hasBypass = bypassList.every(r => !element.startsWith(r));
         if (hasBypass && element.match(/^<?\w[^>]*[^\/]$/)) {
             indent += tab;
         }
@@ -99,4 +111,41 @@ export function htmlFormatter(html: string) {
 
 export function textToSlug(text: string) {
     return text?.replace(/\s+/g, '-').toLowerCase() || '';
+}
+
+export function wordCount(text: string) {
+    return (text && text?.split(' ').filter(r => r != '').length);
+}
+
+export function encodeURIString(text: string) {
+    try {
+        return encodeURIComponent(text);
+    }
+    catch{
+        return 'Invalid Input'
+    }
+}
+
+export function decodeURIString(text: string) {
+    try {
+        return decodeURIComponent(text);
+    }
+    catch{
+        return 'Invalid Input'
+    }
+}
+
+export function encodeHTML(text: string) {
+    const element = document.createElement('div');
+    if (text) {
+        element.innerText = text;
+        return element.innerHTML;
+    }
+    return '';
+}
+
+export function decodeHTML(text: string) {
+    const txt = document.createElement('textarea');
+    txt.innerHTML = text;
+    return txt.value;
 }

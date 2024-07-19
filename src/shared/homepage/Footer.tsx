@@ -1,6 +1,7 @@
-import { LogOutIcon } from "lucide-react";
+import { Aperture, LogOutIcon } from "lucide-react";
 
 export const Footer = () => {
+  const currentYear = new Date().getFullYear();
   return (
     <footer id="footer">
       <hr className="w-11/12 mx-auto" />
@@ -10,14 +11,14 @@ export const Footer = () => {
           <a
             rel="noreferrer noopener"
             href="/"
-            className="font-bold text-xl flex"
+            className="font-bold text-xl flex items-center gap-4"
           >
-            <LogOutIcon />
-            ShadcnUI/React
+            <Aperture />
+            Swattch
           </a>
         </div>
 
-        <div className="flex flex-col gap-2">
+        {/* <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">Follow US</h3>
           <div>
             <a
@@ -114,37 +115,27 @@ export const Footer = () => {
               FAQ
             </a>
           </div>
-        </div>
+        </div> */}
 
         <div className="flex flex-col gap-2">
-          <h3 className="font-bold text-lg">Community</h3>
+          <h3 className="font-bold text-lg">Utilities</h3>
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              href="/converter"
               className="opacity-60 hover:opacity-100"
             >
-              Youtube
+              Check Tools
             </a>
           </div>
 
           <div>
             <a
               rel="noreferrer noopener"
-              href="#"
+              href="/gradients"
               className="opacity-60 hover:opacity-100"
             >
-              Discord
-            </a>
-          </div>
-
-          <div>
-            <a
-              rel="noreferrer noopener"
-              href="#"
-              className="opacity-60 hover:opacity-100"
-            >
-              Twitch
+              Gradient
             </a>
           </div>
         </div>
@@ -152,14 +143,14 @@ export const Footer = () => {
 
       <section className="container pb-14 text-center">
         <h3>
-          &copy; 2024 Landing page made by{" "}
+          &copy; {currentYear} Swattch made by{" "}
           <a
             rel="noreferrer noopener"
-            target="_blank"
-            href="https://github.com/leoMirandaa"
+            // target="_blank"
+            href="/"
             className="text-primary transition-all border-primary hover:border-b-2"
           >
-            Leo Miranda
+            AP / SP
           </a>
         </h3>
       </section>

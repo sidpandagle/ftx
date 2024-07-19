@@ -17,28 +17,26 @@ import { Testimonials } from "@/shared/homepage/Testimonials";
 import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Swattch",
-  description: "Unlock Your Text's Potential: Free Online Conversion Tools",
-  keywords: "online converter, free converter, file converter, document converter, image converter, audio converter, video converter, unit converter, data converter, online tool, free tool, easy to use, fast conversion, batch conversion",
+  description: "Transform Your Digital Experience: Effortless Conversions & Stunning Gradients",
+  keywords: "Transform your digital toolkit with our powerful converter tools and gradient browser. Effortlessly switch between formats and explore stunning gradients",
 };
 
 function App() {
   return (
     <>
       <Hero />
-      {/* <Navbar />
-      <Sponsors />
-      <About />
-      <HowItWorks />
-      <Features />
-      <Services />
-      <Cta />
-      <Testimonials />
-      <Team />
-      <Pricing />
-      <Newsletter />
-      <FAQ />
-      <Footer />
-      <ScrollToTop /> */}
+      {/* <Sponsors /> */}
+      {/* <About /> */}
+      {/* <HowItWorks /> */}
+      {/* <Features /> */}
+      {/* <Services /> */}
+      {/* <Cta /> */}
+      {/* <Testimonials /> */}
+      {/* <Team /> */}
+      {/* <Pricing /> */}
+      {/* <Newsletter /> */}
+      {/* <FAQ /> */}
+      <ScrollToTop />
     </>
   );
 }

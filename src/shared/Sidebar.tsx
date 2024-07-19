@@ -17,7 +17,7 @@ export default function Sidebar() {
                         </div>
                         {tools.map((r, i) => {
                             return (
-                                <Link key={i} href={r.url} className={`flex items-center gap-3 rounded-lg px-3 py-1 text-muted-foreground hover:text-slate-900 transition-all ${pathname === r.url && 'text-slate-900 bg-slate-100'}`}>
+                                <Link key={i} href={r.url} className={`flex items-center gap-3 rounded-lg px-3 py-1 text-muted-foreground transition-all ${pathname === r.url && 'text-slate-900 bg-slate-100'}`}>
                                     {r.heading}
                                 </Link>
                             )
