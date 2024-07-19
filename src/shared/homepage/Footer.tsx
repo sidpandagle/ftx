@@ -1,4 +1,5 @@
 import { Aperture, LogOutIcon } from "lucide-react";
+import Link from "next/link";
 
 export const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,135 +9,123 @@ export const Footer = () => {
 
       <section className="container py-20 grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-x-12 gap-y-8">
         <div className="col-span-full xl:col-span-2">
-          <a
-            rel="noreferrer noopener"
+          <Link
             href="/"
             className="font-bold text-xl flex items-center gap-4"
           >
             <Aperture />
             Swattch
-          </a>
+          </Link>
         </div>
 
         {/* <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">Follow US</h3>
           <div>
-            <a
-              rel="noreferrer noopener"
+            <Link
               href="#"
               className="opacity-60 hover:opacity-100"
             >
               Github
-            </a>
+            </Link>
           </div>
 
           <div>
-            <a
-              rel="noreferrer noopener"
+            <Link
               href="#"
               className="opacity-60 hover:opacity-100"
             >
               Twitter
-            </a>
+            </Link>
           </div>
 
           <div>
-            <a
-              rel="noreferrer noopener"
+            <Link
               href="#"
               className="opacity-60 hover:opacity-100"
             >
               Dribbble
-            </a>
+            </Link>
           </div>
         </div>
 
         <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">Platforms</h3>
           <div>
-            <a
-              rel="noreferrer noopener"
+            <Link
               href="#"
               className="opacity-60 hover:opacity-100"
             >
               Web
-            </a>
+            </Link>
           </div>
 
           <div>
-            <a
-              rel="noreferrer noopener"
+            <Link
               href="#"
               className="opacity-60 hover:opacity-100"
             >
               Mobile
-            </a>
+            </Link>
           </div>
 
           <div>
-            <a
-              rel="noreferrer noopener"
+            <Link
               href="#"
               className="opacity-60 hover:opacity-100"
             >
               Desktop
-            </a>
+            </Link>
           </div>
         </div>
 
         <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">About</h3>
           <div>
-            <a
-              rel="noreferrer noopener"
+            <Link
               href="#"
               className="opacity-60 hover:opacity-100"
             >
               Features
-            </a>
+            </Link>
           </div>
 
           <div>
-            <a
-              rel="noreferrer noopener"
+            <Link
               href="#"
               className="opacity-60 hover:opacity-100"
             >
               Pricing
-            </a>
+            </Link>
           </div>
 
           <div>
-            <a
-              rel="noreferrer noopener"
+            <Link
               href="#"
               className="opacity-60 hover:opacity-100"
             >
               FAQ
-            </a>
+            </Link>
           </div>
         </div> */}
 
         <div className="flex flex-col gap-2">
           <h3 className="font-bold text-lg">Utilities</h3>
           <div>
-            <a
-              rel="noreferrer noopener"
+            <Link
               href="/converter"
               className="opacity-60 hover:opacity-100"
             >
               Check Tools
-            </a>
+            </Link>
           </div>
 
           <div>
-            <a
-              rel="noreferrer noopener"
-              href="/gradients"
+            <Link
+              href="/gradient"
               className="opacity-60 hover:opacity-100"
             >
               Gradient
-            </a>
+            </Link>
           </div>
         </div>
       </section>
@@ -144,14 +133,13 @@ export const Footer = () => {
       <section className="container pb-14 text-center">
         <h3>
           &copy; {currentYear} Swattch made by{" "}
-          <a
-            rel="noreferrer noopener"
+          <Link
             // target="_blank"
             href="/"
             className="text-primary transition-all border-primary hover:border-b-2"
           >
             AP / SP
-          </a>
+          </Link>
         </h3>
       </section>
     </footer>
