@@ -147,7 +147,7 @@ export const Navbar = () => {
                       </a>
                     </NavigationMenuTrigger>
                   </Link>
-                  <NavigationMenuContent>
+                  {/* <NavigationMenuContent>
                     <NavigationMenuLink>
                       <div className="grid gap-4 sm:grid-cols-4 p-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 min-w-[700px]">
                         {tools.map((r: any, i: any) => {
@@ -165,7 +165,7 @@ export const Navbar = () => {
                       </div>
 
                     </NavigationMenuLink>
-                  </NavigationMenuContent>
+                  </NavigationMenuContent> */}
                 </NavigationMenuItem>
               </NavigationMenuList>
             </NavigationMenu>

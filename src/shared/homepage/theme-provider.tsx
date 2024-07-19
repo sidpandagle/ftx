@@ -29,7 +29,7 @@ export function ThemeProvider({
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(
     () => (
-      (typeof window !== 'undefined' && localStorage.getItem(storageKey) as Theme)) || defaultTheme
+      localStorage.getItem(storageKey) as Theme) || defaultTheme
   );
 
   useEffect(() => {
@@ -53,10 +53,8 @@ export function ThemeProvider({
   const value = {
     theme,
     setTheme: (theme: Theme) => {
-      if (typeof window !== 'undefined') {
-        localStorage.setItem(storageKey, theme);
-        setTheme(theme);
-    }
+      localStorage.setItem(storageKey, theme);
+      setTheme(theme);
     
     },
   };

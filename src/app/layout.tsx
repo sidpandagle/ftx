@@ -1,7 +1,7 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { GoogleAnalytics } from '@next/third-parties/google'
-import {Navbar} from "@/shared/homepage/Navbar";
+import { Navbar } from "@/shared/homepage/Navbar";
 import { ThemeProvider } from "@/shared/homepage/theme-provider";
 import { Footer } from "@/shared/homepage/Footer";
 
@@ -14,14 +14,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <ThemeProvider>
+      <ThemeProvider>
+        <body className={inter.className}>
           <Navbar />
           {children}
           <Footer />
-        </ThemeProvider>
-        <GoogleAnalytics gaId="G-T2MWL6PH5Y" />
-      </body>
+          <GoogleAnalytics gaId="G-T2MWL6PH5Y" />
+        </body>
+      </ThemeProvider>
     </html>
   );
 }
