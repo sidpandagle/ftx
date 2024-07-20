@@ -2,6 +2,7 @@ import { Button, buttonVariants } from "@/components/ui/button";
 import { HeroCards } from "./HeroCards";
 import { Aperture } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export const Hero = () => {
   return (
@@ -45,7 +46,8 @@ export const Hero = () => {
 
       {/* Hero cards sections */}
       <div className="z-10">
-        <HeroCards />
+        {/* <HeroCards /> */}
+        <Image alt="hero-img" src={"/hero-img.png"} width={500} height={500}></Image>
       </div>
 
       {/* Shadow effect */}

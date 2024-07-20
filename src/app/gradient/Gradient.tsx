@@ -82,9 +82,9 @@ export default function Gradient() {
             gradient = `linear-gradient(to bottom right, #${component.slice(0, 6)}, #${component.slice(6, 12)}, #${component.slice(12, 18)}, #${component.slice(18, 24)})`
           }
           return (
-            <div key={component} className="h-40 rounded-2xl relative" style={{ background: gradient }}>
-              <div className="absolute group duration-300 z-10 top-3 right-2 rounded-lg" >
-                <ClipboardCopy className="h-4 w-4 group-hover:text-slate-100 duration-300 text-slate-800" onClick={() => {
+            <div key={component} className="h-40 group  rounded-2xl relative overflow-hidden" style={{ background: gradient }}>
+              <div className="absolute duration-300 z-10 top-3 right-3 rounded-lg" >
+                <ClipboardCopy className="h-4 w-4 group-hover:translate-y-0 hover:text-white -translate-y-10 duration-200 text-slate-800" onClick={() => {
                   toast({
                     title: "Copied",
                     description: "Code copied to clipboard",
@@ -92,7 +92,7 @@ export default function Gradient() {
                       <Check />
                     ),
                   });
-                  navigator.clipboard.writeText(gradient);
+                  navigator.clipboard.writeText('background: ' + gradient);
                 }} />
               </div>
               {/* <div className="absolute group duration-300 z-10 top-3 right-8 rounded-lg" >

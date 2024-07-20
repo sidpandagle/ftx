@@ -31,6 +31,10 @@ const routeList: RouteProps[] = [
     href: "/gradient",
     label: "Gradients",
   },
+  {
+    href: "/converter",
+    label: "Tools",
+  },
   // {
   //   href: "/#pricing",
   //   label: "Pricing",
@@ -79,36 +83,6 @@ export const Navbar = () => {
                   </SheetTitle>
                 </SheetHeader>
                 <nav className="flex flex-col justify-center items-center gap-2 mt-4">
-                  <NavigationMenu className="text-muted-foreground transition-colors hover:text-foreground">
-                    <NavigationMenuList>
-                      <NavigationMenuItem>
-                        <Link href={`/converter`}>
-                          <NavigationMenuTrigger className="hover:bg-transparent focus:bg-transparent">
-                            Tools
-                          </NavigationMenuTrigger>
-                        </Link>
-                        <NavigationMenuContent>
-                          <NavigationMenuLink>
-                            <div className="grid gap-4 sm:grid-cols-4 p-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 min-w-[700px]">
-                              {tools.map((r: any, i: any) => {
-                                return (
-                                  <Link key={i} href={`${r.url}`}>
-                                    <Card className="hover:bg-primary-foreground duration-200 cursor-pointer border-none shadow-none">
-                                      <CardHeader className="p-2">
-                                        <CardTitle className="text-sm">{r.heading}</CardTitle>
-                                        <CardDescription className="text-xs line-clamp-2">{r.subHeading}</CardDescription>
-                                      </CardHeader>
-                                    </Card>
-                                  </Link>
-                                )
-                              })}
-                            </div>
-
-                          </NavigationMenuLink>
-                        </NavigationMenuContent>
-                      </NavigationMenuItem>
-                    </NavigationMenuList>
-                  </NavigationMenu>
                   {routeList.map(({ href, label }: RouteProps) => (
 
                     <Link
@@ -131,44 +105,6 @@ export const Navbar = () => {
 
           {/* desktop */}
           <nav className="hidden md:flex gap-2">
-
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <Link href={`/converter`}>
-                    <NavigationMenuTrigger className="hover:bg-transparent focus:bg-transparent">
-                      <a
-                        rel="noreferrer noopener"
-                        className={`text-[17px] ${buttonVariants({
-                          variant: "ghost",
-                        })}`}
-                      >
-                        Tools
-                      </a>
-                    </NavigationMenuTrigger>
-                  </Link>
-                  {/* <NavigationMenuContent>
-                    <NavigationMenuLink>
-                      <div className="grid gap-4 sm:grid-cols-4 p-4 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 min-w-[700px]">
-                        {tools.map((r: any, i: any) => {
-                          return (
-                            <Link key={i} href={`${r.url}`}>
-                              <Card className="hover:bg-primary-foreground duration-200 cursor-pointer border-none shadow-none">
-                                <CardHeader className="p-2">
-                                  <CardTitle className="text-sm">{r.heading}</CardTitle>
-                                  <CardDescription className="text-xs line-clamp-2">{r.subHeading}</CardDescription>
-                                </CardHeader>
-                              </Card>
-                            </Link>
-                          )
-                        })}
-                      </div>
-
-                    </NavigationMenuLink>
-                  </NavigationMenuContent> */}
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
             {routeList.map((route: RouteProps, i) => (
               <Link
                 href={route.href}
