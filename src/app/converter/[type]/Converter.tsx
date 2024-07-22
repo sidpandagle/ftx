@@ -75,7 +75,7 @@ export default function Converter({ params }: { params: { type: string } }) {
                                 }} />
                             </div>}
                         <Label>{convertor.labelTwo}</Label>
-                        <Textarea value={output} onChange={(e) => { }} className="text-black cursor-default caret-transparent resize-none h-72 focus-visible:ring-offset-0 focus-visible:ring-0" />
+                        <Textarea value={output} onChange={(e) => { }} className="text-primary cursor-default caret-transparent resize-none h-72 focus-visible:ring-offset-0 focus-visible:ring-0" />
                     </div>
                 </div>
                 <div className="flex justify-center gap-4">
